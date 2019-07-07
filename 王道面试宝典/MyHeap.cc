@@ -8,7 +8,6 @@ class MyHeap
 public:
     void maxHeapify(vector<T> &arr,int start,int end)
     {
-        cout<<"1111"<<endl;
         int dad =start,son = dad*2+1;
         while(son<=end)
         {

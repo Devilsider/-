@@ -2,16 +2,13 @@
 
 int add(int a,int b)
 {
-    int sum = a^b;
-    int carry = a&b;
+    int sum = a;
+    int carry = b;
     while(carry)
     {
-        int tmpSum = sum ^ carry;
-        int tmpCarry = carry <<1;
-
-        sum = tmpSum ^ tmpCarry;
-        carry = tmpSum & tmpCarry;
-        
+       int tmp = sum;
+       sum = tmp ^ carry;
+       carry = (tmp & carry)<<1;
     }
     return sum;
 }
