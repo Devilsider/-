@@ -1,27 +1,27 @@
 #include <iostream>
-void Partition(int a[],int p,int r)
+#include <vector>
+using namespace std;
+
+void Partion(vector<int> &arr,int start,int end)
 {
-    int i = r+1;
-    for(int j = r;j>=p;--j)
+    int i = end+1;
+    for(int j=end;j>=start;--j)
     {
-        if(a[j]!=0)
+        if(arr[j]!=0)
         {
             --i;
-            int temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
+            swap(arr[i],arr[j]);
         }
     }
 }
-int main()
+int main(void)
 {
-    int a[7] = {0,3,0,2,1,0,0};
-    Partition(a,0,6);
-    for(int idx = 0;idx<7;++idx)
-    {
-        std::cout<<idx<<" ";
-    }
-    std::cout<<std::endl;
-    return 0;
-}
+    vector<int> arr = {0,3,0,2,1,0,0};
+    Partion(arr,0,6);
 
+    for(auto &i:arr)
+    {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+}
